@@ -19,13 +19,21 @@ alias l='eza -lh --icons=always'
 alias la='eza -a --icons=always'
 alias ll='eza -lah --icons=always'
 alias c='clear'
+alias vim="nvim"
 alias pm='sudo pacman -S --noconfirm'
-alias pr='paru -S --noconfirm'
-alias ff='fastfetch | lolcat'
+alias y='yazi'
+alias ff='fastfetch --logo arch2 -c /usr/share/fastfetch/presets/examples/10.jsonc'
+
+#fastfetch --logo GhostFreak -c ~/.config/fastfetch/examples/10.jsonc
+#fastfetch --logo XeroArch -c ~/.config/fastfetch/examples/10.jsonc
+
+# Plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
 
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Just for fun stuff
-fortune | cowsay -r | lolcat
-
+fastfetch -c /usr/share/fastfetch/presets/examples/28.jsonc | lolcat
