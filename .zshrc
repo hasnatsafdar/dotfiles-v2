@@ -43,7 +43,15 @@ alias c='clear'
 alias vim='nvim'
 alias pm='sudo pacman -S'
 alias pmnc='sudo pacman -S --noconfirm'
-alias y='yazi'
+# Yazi setup
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+# Fastfetch setup
 if command -v fastfetch >/dev/null 2>&1; then
   if [[ -f /usr/share/fastfetch/presets/examples/10.jsonc ]]; then
     alias ff='fastfetch --logo debian -c /usr/share/fastfetch/presets/examples/10.jsonc'
@@ -62,11 +70,10 @@ export KEYTIMEOUT=1
 # ╭──────────────────────────────────────────────╮
 # │ Plugins                                      │
 # ╰──────────────────────────────────────────────╯
-for plugin in zsh-users/zsh-completions zsh-users/zsh-autosuggestions zsh-users/zsh-syntax-highlighting; do
-  if ! zinit light "$plugin"; then
-    echo "[zsh] Warning: Failed to load plugin $plugin" >&2
-  fi
-done
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+#zinit light Aloxaf/fzf-tab
 
 # ╭──────────────────────────────────────────────╮
 # │ fzf integration                              │
