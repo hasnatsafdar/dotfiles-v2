@@ -10,7 +10,7 @@ sudo apt install -y \
   mpv qutebrowser firefox \
   rxvt-unicode xsel lxappearance scrot \
   git wget curl hsetroot btop \
-  ffmpeg 7zip jq poppler-utils fd-find ripgrep imagemagick
+  ffmpeg 7zip unzip jq poppler-utils fd-find ripgrep imagemagick
 
 ```
 yazi:
