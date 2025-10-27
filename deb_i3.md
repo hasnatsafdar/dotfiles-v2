@@ -19,6 +19,14 @@ echo "deb https://debian.griffo.io/apt $(lsb_release -sc 2>/dev/null) main" | su
 sudo apt update
 sudo apt install yazi
 
+#### Fonts (JetBrainsMono Nerd)
+
+wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip \
+&& cd ~/.local/share/fonts \
+&& unzip JetBrainsMono.zip \
+&& rm JetBrainsMono.zip \
+&& fc-cache -fv
+
 ### ⚙️ Post-Install Configuration
 
 **Enable Display Manager (ly):**
@@ -30,13 +38,13 @@ sudo systemctl enable --now ly
 **Set up Zsh with Zinit and Starship (optional):**
 
 ```bash
-# Install Zinit
+#### Install Zinit
 bash -c "$(curl -fsSL https://git.io/zinit-install)"
 
-# Install Starship prompt
+#### Install Starship prompt
 curl -sS https://starship.rs/install.sh | sh
 
-# Add to ~/.zshrc
+#### Add to ~/.zshrc
 echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 ```
 
