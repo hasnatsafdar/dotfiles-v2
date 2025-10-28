@@ -4,12 +4,13 @@
 set $mod Mod4
 
 # Font
-font pango:JetBrainsMonoNerdFont Bold 10
+font pango:JetBrainsMono 8
 
 # Autostart
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
+#exec --no-startup-id xrandr --output DP-0 --mode 1920x1080
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -18,8 +19,23 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# Bar
+exec_always --no-startup-id ~/.config/polybar/./launch.sh --blocks &
+
+# Brightness (brightnessctl)
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# Screenshot (flameshot)
+bindsym Print exec flameshot gui
+
+# Launch Terminal
 bindsym $mod+Return exec alacritty
+
+# kill window
 bindsym $mod+q kill
+
+# App Launcher
 bindsym $mod+space exec rofi -show drun
 
 # change focus

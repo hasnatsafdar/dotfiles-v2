@@ -43,6 +43,9 @@ alias c='clear'
 alias vim='nvim'
 alias pm='sudo pacman -S'
 alias pmnc='sudo pacman -S --noconfirm'
+alias ga='git add .'
+alias gc='git commit -m'
+alias gp='git push'
 # Yazi setup
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -74,30 +77,6 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 #zinit light Aloxaf/fzf-tab
-
-# ╭──────────────────────────────────────────────╮
-# │ fzf integration                              │
-# ╰──────────────────────────────────────────────╯
-if command -v fzf >/dev/null 2>&1; then
-  # Source default fzf keybindings
-  if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
-    source /usr/share/fzf/key-bindings.zsh
-  elif [[ -f /usr/local/share/fzf/key-bindings.zsh ]]; then
-    source /usr/local/share/fzf/key-bindings.zsh
-  fi
-
-  fzf-history-widget() {
-    local selected
-    selected=$(fc -rl 1 | fzf --height ${FZF_HEIGHT:-40%} --reverse --no-sort +m --query="$LBUFFER" | sed 's/^[0-9 \t]*//') || return 1
-    if [[ -n $selected ]]; then
-      BUFFER=$selected
-      CURSOR=$#BUFFER
-      zle redisplay
-    fi
-  }
-  zle -N fzf-history-widget
-  bindkey '^R' fzf-history-widget
-fi
 
 # ╭──────────────────────────────────────────────╮
 # │ Starship Prompt                              │
