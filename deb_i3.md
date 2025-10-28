@@ -4,7 +4,7 @@
 
 ```bash
 sudo apt install -y \
-  i3 xorg xinit ly psmisc \
+  i3 xorg xinit xrandr ly psmisc \
   fastfetch polybar rofi feh \
   zsh fzf zoxide eza \
   mpv qutebrowser firefox \
