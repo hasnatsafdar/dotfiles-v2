@@ -4,7 +4,7 @@
 set $mod Mod4
 
 # Font
-font pango:JetBrainsMono 8
+font pango:JetBrains Mono Nerd Font 8
 
 # Autostart
 exec --no-startup-id dex --autostart --environment i3
@@ -19,9 +19,12 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Bar
-exec_always --no-startup-id ~/.config/polybar/./launch.sh --blocks &
+default_border none
 
+# Bar
+#exec_always --no-startup-id ~/.config/polybar/./launch.sh --blocks &
+#exec_always --no-startup-id ~/.config/polybar/./launch.sh
+exec_always polybar &
 # Brightness (brightnessctl)
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
@@ -134,5 +137,5 @@ mode "resize" {
 # enter resize mode
 bindsym $mod+r mode "resize"
 
-# set wallpaper
+#Wallpaper
 exec --no-startup-id feh --bg-scale /home/haxnet/Pictures/wallhaven-ly9qzq_1920x1080.png
