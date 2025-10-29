@@ -1,3 +1,9 @@
+# _   _                       _   _        ____        _
+#| | | | __ ___  ___ __   ___| |_( )___   |  _ \  ___ | |_ ___
+#| |_| |/ _` \ \/ / '_ \ / _ \ __|// __|  | | | |/ _ \| __/ __|
+#|  _  | (_| |>  <| | | |  __/ |_  \__ \  | |_| | (_) | |_\__ \
+#|_| |_|\__,_/_/\_\_| |_|\___|\__| |___/  |____/ \___/ \__|___/
+
 # ╭──────────────────────────────────────────────╮
 # │ Zinit Bootstrap (self-installing + portable) │
 # ╰──────────────────────────────────────────────╯
@@ -52,6 +58,8 @@ alias pmnc='sudo pacman -S --noconfirm'
 alias ga='git add .'
 alias gc='git commit -m'
 alias gp='git push'
+
+alias ff='fastfetch --logo debian -c /usr/share/fastfetch/presets/examples/10.jsonc'
 # Yazi setup
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -60,15 +68,6 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
-# Fastfetch setup
-if command -v fastfetch >/dev/null 2>&1; then
-  if [[ -f /usr/share/fastfetch/presets/examples/10.jsonc ]]; then
-    alias ff='fastfetch --logo debian -c /usr/share/fastfetch/presets/examples/10.jsonc'
-  else
-    alias ff='fastfetch --logo debian'
-    echo "[zsh] Warning: fastfetch preset not found, using default config." >&2
-  fi
-fi
 
 # ╭──────────────────────────────────────────────╮
 # │ Vim Keybindings                              │

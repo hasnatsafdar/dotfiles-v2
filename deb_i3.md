@@ -4,11 +4,12 @@
 
 ```bash
 sudo apt install -y \
-  i3 xorg xinit xrandr ly psmisc \
+  i3 xorg xinit xrandr ly psmisc build-essential \
   pipewire pipewire-audio-client-libraries pipewire-pulse \
   fastfetch polybar rofi feh \
-  zsh fzf zoxide eza \
+  tmux zsh fzf zoxide eza \
   mpv qutebrowser thunar \
+  lazygit lazydocker \
   rxvt-unicode xsel lxappearance scrot \
   git wget curl hsetroot btop \
   ffmpeg 7zip unzip jq poppler-utils fd-find ripgrep imagemagick
@@ -31,9 +32,15 @@ curl -sS https://debian.griffo.io/EA0F721D231FDD3A0A17B9AC7808B4DD62C41256.asc |
 echo "deb https://debian.griffo.io/apt $(lsb_release -sc 2>/dev/null) main" | sudo tee /etc/apt/sources.list.d/debian.griffo.io.list
 sudo apt update
 sudo apt install yazi
+**neovim**
+wget https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-linux-x86_64.appimage
+mv nvim-linux-x86_64.appimage nvim
+chmod +x nvim
+sudo mv /usr/local/bin
+**lazyvim**
+git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
 #### Fonts (JetBrainsMono Nerd)
-
 wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip \
 && cd ~/.local/share/fonts \
 && unzip JetBrainsMono.zip \
