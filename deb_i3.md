@@ -14,6 +14,11 @@ sudo apt install -y \
   git wget curl hsetroot btop \
   ffmpeg 7zip unzip jq poppler-utils fd-find ripgrep imagemagick
 ```
+
+**localsend**:
+wget https://github.com/localsend/localsend/releases/download/v1.17.0/LocalSend-1.17.0-linux-x86-64.deb
+sudo apt install ./LocalSend-1.17.0-linux-x86-64.deb
+
 **Docker**:
 sudo apt update
 sudo apt install -y ca-certificates curl gnupg lsb-release
