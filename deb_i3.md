@@ -4,13 +4,13 @@
 
 ```bash
 sudo apt install -y \
-  i3 xorg xinit xrandr ly psmisc build-essential \
+  i3 xorg xinit xrandr ly psmisc build-essential dbus-x11 libnotify-bin rsync stow \
   pipewire pipewire-audio-client-libraries pipewire-pulse \
   fastfetch polybar rofi feh \
   tmux zsh fzf zoxide eza \
   mpv qutebrowser thunar \
   lazygit lazydocker \
-  rxvt-unicode xsel lxappearance scrot \
+  rxvt-unicode xsel lxappearance scrot caffeine \
   git wget curl hsetroot btop \
   ffmpeg 7zip unzip jq poppler-utils fd-find ripgrep imagemagick
 ```

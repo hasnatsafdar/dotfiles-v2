@@ -53,6 +53,7 @@ if command -v eza >/dev/null 2>&1; then
 fi
 alias c='clear'
 alias vim='nvim'
+alias vi='nvim'
 alias pm='sudo pacman -S'
 alias pmnc='sudo pacman -S --noconfirm'
 alias ga='git add .'
