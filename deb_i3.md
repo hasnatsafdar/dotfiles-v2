@@ -12,7 +12,7 @@ sudo apt install -y \
   lazygit lazydocker \
   rxvt-unicode xsel lxappearance scrot caffeine \
   git wget curl hsetroot btop \
-  ffmpeg 7zip unzip jq poppler-utils fd-find ripgrep imagemagick
+  ffmpeg yt-dlp 7zip unzip jq poppler-utils fd-find ripgrep imagemagick
 ```
 
 **localsend**:
